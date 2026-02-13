@@ -10,11 +10,11 @@ Input schema (fixed):
     product_title,
     gender,
     category,
-    klydo_price,
+    product_price,
     myntra_price,
     slikk_price,
     brand_price,
-    klydo_url,
+    product_url,
     myntra_url,
     slikk_url,
     brand_url
@@ -46,7 +46,7 @@ if sys.platform == 'win32':
 # -----------------------------
 
 # ScraperAPI configuration for Slikk (JavaScript rendering)
-SCRAPERAPI_KEY = 'PASTE_SCRAPPER_API_HERE'  # your key
+SCRAPERAPI_KEY = 'PASTE_YOUR_SCRAPERAPI_KEY_HERE'  # your key
 
 # List of common user agents to rotate through
 USER_AGENTS = [
@@ -73,11 +73,11 @@ EXPECTED_FIELDNAMES = [
     "product_title",
     "gender",
     "category",
-    "klydo_price",
+    "product_price",
     "myntra_price",
     "slikk_price",
     "brand_price",
-    "klydo_url",
+    "product_url",
     "myntra_url",
     "slikk_url",
     "brand_url",
@@ -120,7 +120,7 @@ class PriceExtractor:
             'avantgardeoriginal.com', 'badandboujee.in', 'baugebags.com',
             'bersache.com', 'bummer.in', 'chapter2drip.com', 'chumbak.com',
             'chupps.com', 'mavinclub.com', 'ecoright.com', 'gunsnsons.com',
-            'buyhautesauce.com', 'justlilthings.in', 'klydo.in', 'levi.in',
+            'buyhautesauce.com', 'justlilthings.in', 'levi.in',
             'maincharacterindia.com', 'mywishbag.com', 'nailin.it', 'palmonas.com',
             'rapidbox.in', 'recast.co.in', 'salty.co.in', 'stylishop.com', 'styli.in',
             'thekurtacompany.com', 'thelagaadi.com', 'untung.in', 'xyxxcrew.com',

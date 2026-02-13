@@ -62,7 +62,6 @@ SHOPPING_SITES = {
     "jockey": ["jockey.in"],
     "just_lil_things": ["justlilthings.in"],
     "kedias": [],
-    "klydo_x_revolte": ["klydo.in"],
     "lancer": [],
     "levis": ["levi.in"],
     "locomotive": [],
@@ -171,7 +170,7 @@ def build_session():
     adapter = HTTPAdapter(max_retries=retries, pool_connections=64, pool_maxsize=64)
     s.mount("https://", adapter)
     s.mount("http://", adapter)
-    s.headers.update({"Accept": "application/json", "User-Agent": "klydo/serpapi-batcher"})
+    s.headers.update({"Accept": "application/json", "User-Agent": "serpapi-batcher/1.0"})
     return s
 
 SESSION = build_session()
@@ -233,7 +232,6 @@ def get_brand_site(brand_name: str):
         "jockey":"jockey",
         "justlilthings":"just_lil_things","justlilthings ":"just_lil_things","just lil things":"just_lil_things",
         "kedias":"kedias",
-        "klydoxrevolte":"klydo_x_revolte","klydo":"klydo_x_revolte","revolte":"klydo_x_revolte",
         "lancer":"lancer",
         "levis":"levis","levi":"levis","levi's":"levis",
         "locomotive":"locomotive",
@@ -366,7 +364,6 @@ def check_brand_relaxed_match(match, target_brand, site_key):
         "souled store": ["souled store", "the souled store", "tss", "the souled store official"],
         "vara": ["vara","vishudh","vara by vishudh"],
         "xyxx": ["xyxx","xyxx crew"],
-        "klydo": ["klydo","revolte","klydo x revolte"],
         "aatmana": ["aatmana", "aksha handmade jewelry", "aksha"],
         "technosport": ["technosport"],
         "veirdo": ["veirdo"],
@@ -410,7 +407,6 @@ def is_valid_product_url(url):
         ("buyhautesauce.com", ["/products/","/product/"]),
         ("jockey.in", ["/products/","/product/"]),
         ("justlilthings.in", ["/products/","/product/"]),
-        ("klydo.in", ["/product/"]),
         ("levi.in", ["/products/","/product/","/in-en/p/"]),
         ("maincharacterindia.com", ["/products/","/product/"]),
         ("mydesignation.com", ["/products/"]),
@@ -784,8 +780,8 @@ def process_products(input_csv, output_csv, batch_size=8, max_workers=8):
     # Write CSV
     fieldnames = [
         "view_count","style_id","brand","product_title","gender","category",
-        "klydo_price","myntra_price","slikk_price","brand_price",
-        "klydo_url","myntra_url","slikk_url","brand_url",
+        "myntra_price","slikk_price","brand_price",
+        "myntra_url","slikk_url","brand_url",
     ]
     try:
         with open(output_csv, "w", encoding="utf-8", newline="") as csv_file:
@@ -811,11 +807,9 @@ def process_products(input_csv, output_csv, batch_size=8, max_workers=8):
                     "product_title": product.get("product_title", "") or "",
                     "gender": product.get("gender", "") or "",
                     "category": product.get("category", "") or "",
-                    "klydo_price": product.get("min_price_rupees", "") or "",
                     "myntra_price": myntra_data.get("price", ""),
                     "slikk_price": slikk_data.get("price", ""),
                     "brand_price": brand_data.get("price", ""),
-                    "klydo_url": f"https://klydo.in/product/{style_id}" if style_id else "",
                     "myntra_url": myntra_data.get("url", ""),
                     "slikk_url": slikk_data.get("url", ""),
                     "brand_url": brand_data.get("url", ""),
