@@ -46,7 +46,7 @@ if sys.platform == 'win32':
 # -----------------------------
 
 # ScraperAPI configuration for Slikk (JavaScript rendering)
-SCRAPERAPI_KEY = 'f25d8144aa7b49fa59d0c952114e62a4'  # your key
+SCRAPERAPI_KEY = 'PASTE_SCRAPPER_API_HERE'  # your key
 
 # List of common user agents to rotate through
 USER_AGENTS = [
