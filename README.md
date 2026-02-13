@@ -92,11 +92,11 @@ Writes columns:
 - `product_title`
 - `gender`
 - `category`
-- `klydo_price`
+- `product_price`
 - `myntra_price`
 - `slikk_price`
 - `brand_price`
-- `klydo_url`
+- `product_url`
 - `myntra_url`
 - `slikk_url`
 - `brand_url`
@@ -113,11 +113,11 @@ Expected columns:
 - `product_title`
 - `gender`
 - `category`
-- `klydo_price`
+- `product_price`
 - `myntra_price`
 - `slikk_price`
 - `brand_price`
-- `klydo_url`
+- `product_url`
 - `myntra_url`
 - `slikk_url`
 - `brand_url`
